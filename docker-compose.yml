@@ -1,0 +1,30 @@
+version: '2'
+services:
+  serviceone:
+    command: /bin/sh -c "npm run setup && npm run serviceOne"
+    image: node
+    working_dir: /opt
+    volumes:
+     - .:/opt
+    environment:
+      TERM: dumb
+    depends_on:
+      - servicethree
+  servicetwo:
+    command: /bin/sh -c "npm run setup && npm run serviceTwo"
+    image: node
+    working_dir: /opt
+    volumes:
+     - .:/opt
+    environment:
+      TERM: dumb
+    depends_on:
+      - servicethree
+  servicethree:
+    command: /bin/sh -c "npm run setup && npm run serviceThree"
+    image: node
+    working_dir: /opt
+    volumes:
+     - .:/opt
+    environment:
+      TERM: dumb

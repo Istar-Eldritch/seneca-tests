@@ -1,0 +1,33 @@
+{
+  "name": "ts-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "setup": "npm i",
+    "serviceOne": "nodemon -e ts --watch src/main/service1 -q -x 'rm -fr dist/main/service1 && echo \"\\n============\\nCOMPILING...\\n============\\n\\n\" && tsc --outDir dist || return 0 && node dist/main/service1/index.js'",
+    "serviceTwo": "nodemon -e ts --watch src/main/service2 -q -x 'rm -fr dist/main/service2 && echo \"\\n============\\nCOMPILING...\\n============\\n\\n\" && tsc --outDir dist || return 0 && node dist/main/service2/index.js'",
+    "serviceThree": "nodemon -e ts --watch src/main/service3 -q -x 'rm -fr dist/main/service3 && echo \"\\n============\\nCOMPILING...\\n============\\n\\n\" && tsc --outDir dist || return 0 && node dist/main/service3/index.js'",
+
+    "test": "tape dist/test/**/*.spec.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.10.0",
+    "tape": "^4.6.0",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.0.33",
+    "@types/hapi": "^13.0.35",
+    "@types/node": "^6.0.42",
+    "bluebird": "^3.4.6",
+    "chairo": "^2.2.1",
+    "hapi": "^15.1.1",
+    "seneca": "^3.2.1"
+  }
+}
